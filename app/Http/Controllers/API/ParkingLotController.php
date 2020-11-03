@@ -71,6 +71,10 @@ class ParkingLotController extends Controller
 
                         return response()->json(['status' => 'Vehicle Parked Successfully', 'vehicle_details'=> $parkedVehicle], $this->successStatus);
                     } else {
+                        if(Lot::where('id', $lotId)->where('status', 0)->first() !== null)
+                        {
+                            return response()->json(['status' => 'Parking lot ' . $lotId . ' is not for '.$vehicle->category.', choose different lot', 'Free lots' => $lotArr], $this->successStatus);
+                        }
                         return response()->json(['status' => 'Parking lot ' . $lotId . ' already occupied, choose different lot', 'Free lots' => $lotArr], $this->successStatus);
                     }
                 } else {

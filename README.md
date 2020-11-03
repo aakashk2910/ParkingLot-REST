@@ -1,5 +1,57 @@
 # Parking Lot REST API
 
+### Setup
+
+Pre requisites:
+
+PHP, node, mysql
+
+* Start the mysql server 
+
+```mysql
+    mysql -u root -p
+```
+
+* create a data base
+
+```mysql
+    CREATE DATABASE parking_lot
+```
+
+* Update the .env file with the mysql credentials
+
+```json
+    DB_CONNECTION=mysql
+    DB_HOST=127.0.0.1
+    DB_PORT=3306
+    DB_DATABASE=parking_lot
+    DB_USERNAME=root ==> username
+    DB_PASSWORD=     ==> password   
+```
+* Install Authentication client
+
+```mysql
+    php artisan passport:install
+```
+
+* Migrate all required tables
+
+```mysql
+    php artisan migrate
+```
+
+*Install all required libraries
+
+```mysql
+    npm install
+```
+
+*Start Server
+
+```mysql
+    php artisan serve
+```
+
 ## Open Endpoints
 
 Open endpoints require no Authentication.
@@ -22,7 +74,7 @@ Used to regist a User.
 ```json
 {
     "name": "[username]",
-    "username": "[valid email address]",
+    "email": "[valid email address]",
     "password": "[password in plain text]",
     "c_passord": "[password in palin text]"
 }
@@ -33,7 +85,7 @@ Used to regist a User.
 ```json
 {
     "name": "aakash",
-    "username": "aakash@example.com",
+    "email": "aakash@example.com",
     "password": "aakash1234",
     "c_password": "aakash1234"
 }
@@ -185,13 +237,4 @@ The headers should have following parameter set:
 
 **Auth required** : YES
 
-
-###SetUp
-
-* Start the mysql server 
-* create a data base
-* Update the .env file with the mysql credentials
-* npm install 
-* php artisan migrate
-* php artisan serve
 
