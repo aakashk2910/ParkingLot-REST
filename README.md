@@ -52,6 +52,10 @@ PHP, node, mysql
     php artisan serve
 ```
 
+The REST API along with CRUD UI is accessible at `http://127.0.0.1:8000/`
+
+
+
 ## Open Endpoints
 
 Open endpoints require no Authentication.
@@ -237,4 +241,11 @@ The headers should have following parameter set:
 
 **Auth required** : YES
 
+It also calculates the cost and the rate can be set in App\Http\Controllers\API\ParkingLotController.
 
+## CRUD using UI
+
+* `http://127.0.0.1:8000`
+* `http://127.0.0.1:8000/view/vehicle`
+* `http://127.0.0.1:8000/view/lot`
+* `http://127.0.0.1:8000/view/parking`
